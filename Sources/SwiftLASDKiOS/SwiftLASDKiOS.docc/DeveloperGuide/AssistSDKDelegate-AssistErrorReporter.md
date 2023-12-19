@@ -1,20 +1,25 @@
 # AssistSDKDelegate/AssistErrorReporter
 
-Adopting AssistSDKDelegate and implementing its methods enables the application to receive these notifications in Objective-C in swift you will need to adopt the AssistErrorReporter Delegate:
+## Error Reporting
 
-Swift
-```swift
-func assistSDKDidEncounterError(_ error: LASDKErrors) async
+Now we have 2 different delegates that you can conform to depending on whether or not you are using *Objective-C* or *Swift*.
+
+For Swift please use the *AssistErrorReporter* protocol with it's method
+
+```swift 
+      func assistSDKDidEncounterError(_ error: LASDKErrors) async
 ```
 
-Objective-C
+For Objective-C please use the *AssistNSErrorReporter* protocol with it's method
 ```objective-c
-  - assistSDKDidEncounterError: (NSNotification) notification
+     - (void) assistSDKDidEncounterErrorWith:(NSError *)nserror
 ```
 
-Implement this method to receive notifications when **CBA Live Assist** encounters an error. The object of the notification parameter is an LASDKErrors. No keys are defined for the userInfo dictionary, but error reporters may add additional details that could be useful.
+When conforming to *AssistErrorReporter* you will have a swift enum called `LASDKErrors` available to you, in order to switch on the different errors that may be present. 
 
-A reported LASDKErrors may have its code attribute set to one of the enum case provided in the supplied LASDKErrrors enum. See the <doc:Error-Codes> section.
+When conforming to *AssistNSErrorReporter* the protocol method will receive an *nserror* that you will be able to switch on the *NSError* code in order to get the list of `ASDKErrorCode`s.
+
+A reported error may have its code attribute set to one of the enum case provided in the supplied `LASDKErrors` or `ASDKErrorCode` enums. See the <doc:Error-Codes> section.
 
 Swift
 ```swift
