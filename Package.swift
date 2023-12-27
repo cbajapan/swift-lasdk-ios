@@ -21,7 +21,7 @@ let package = Package(
                 "WebRTC"
             ]
         ),
-        .binaryTarget(name: "LASDKiOS", url: "https://swift-sdk.s3.us-east-2.amazonaws.com/lasdk/LASDKiOS-2.0.0-beta6.xcframework.zip", checksum: "98619d2eb545c0672731687ae6e95cfdb08b4bcbd336d84c76e0bba47a38bf27"),
+        .binaryTarget(name: "LASDKiOS", url: "https://swift-sdk.s3.us-east-2.amazonaws.com/lasdk/LASDKiOS-2.0.0-beta7.xcframework.zip", checksum: "9923b31d65c354488ef39c4b71f88dd410ce0caf26120cc5e4e81e909fd88920"),
         .binaryTarget(name: "WebRTC", url: "https://swift-sdk.s3.us-east-2.amazonaws.com/real_time/WebRTC-m117.xcframework.zip", checksum: "7950151686d41d8fc33e69a9ad5bd47cad24d20691b4167e9fa4d8d156a8fca6")
     ]
 )
